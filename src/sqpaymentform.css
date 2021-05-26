@@ -43,8 +43,8 @@
   .sq-creditcard {
     width: 100%;
     height: 56px;
-    margin-top: 10px;
-    background: #f280c4;
+    margin-top: 10px;    
+    background: #f68529;
     border-radius: 4px;
     cursor: pointer;
     display: block;
@@ -62,7 +62,7 @@
   }
   
   .sq-creditcard:hover {
-    background-color: #fd5d86;
+    background-color: #de6c10;
     box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
   }
   

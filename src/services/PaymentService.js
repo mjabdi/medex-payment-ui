@@ -3,49 +3,49 @@ import axiosRetry from 'axios-retry';
 
 export default class PaymentService {
 
-   static doPayment = (paymentId, museumPaymentId) =>
+   static doPayment = (payload) =>
    {
-      return API.post(`/api/museumdental/payment/dopayment`, {paymentId: paymentId  , museumPaymentId : museumPaymentId});
+      return API.post(`/api/medex/payment/dopayment`, payload);
    }
 
    static refundPayment = (paymentId) =>
    {
-      return API.post(`/api/museumdental/payment/refundpayment`, {museumPaymentId : paymentId});
+      return API.post(`/api/medex/payment/refundpayment`, {medexPaymentId : paymentId});
    }
 
    static createNewPaymentLink = (paymentRecord) =>
    {
-      return API.post(`/api/museumdental/payment/createpayment`, {paymentRecord : paymentRecord});
+      return API.post(`/api/medex/payment/createpayment`, {paymentRecord : paymentRecord});
    }
 
    static deletePaymentLink = (paymentId) =>
    {
-      return API.post(`/api/museumdental/payment/deletepayment`, {museumPaymentId : paymentId});
+      return API.post(`/api/medex/payment/deletepayment`, {medexPaymentId : paymentId});
    }
 
    static getAllPayments = () =>
    {
-      return API.get(`/api/museumdental/payment/getallpayments`);
+      return API.get(`/api/medex/payment/getallpayments`);
    }
 
    static getDeletedPayments = () =>
    {
-      return API.get(`/api/museumdental/payment/getdeletedpayments`);
+      return API.get(`/api/medex/payment/getdeletedpayments`);
    }
 
    static getPaidPayments = () =>
    {
-      return API.get(`/api/museumdental/payment/getpaidpayments`);
+      return API.get(`/api/medex/payment/getpaidpayments`);
    }
 
    static getRefundPayments = () =>
    {
-      return API.get(`/api/museumdental/payment/getrefundpayments`);
+      return API.get(`/api/medex/payment/getrefundpayments`);
    }
 
    static getPaymentById = (paymentId) =>
    {
-      return API.get(`/api/museumdental/payment/getpaymentbyid?id=${paymentId}`);
+      return API.get(`/api/medex/payment/getpaymentbyid?id=${paymentId}`);
    }
 
 

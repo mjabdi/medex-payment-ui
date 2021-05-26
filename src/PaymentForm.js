@@ -50,7 +50,7 @@ export default class PaymentForm extends React.Component {
 
     try{
         this.props.onStart()
-        const result = await PaymentService.doPayment({nonce: nonce, token: buyerVerificationToken, personInfo: this.state.personInfo})
+        const result = await PaymentService.doPayment({nonce: nonce, token: buyerVerificationToken, medexPaymentId: this.state.personInfo._id})
         console.log(result)
         this.props.onComplete(result)
     }
@@ -63,7 +63,7 @@ export default class PaymentForm extends React.Component {
 
   createVerificationDetails() {
     return {
-      amount: "100.00",
+      amount: `${this.state.personInfo.amount}` ,
       currencyCode: "GBP",
       intent: "CHARGE",
       billingContact: {
@@ -104,7 +104,7 @@ export default class PaymentForm extends React.Component {
                 </div>
               </fieldset>
 
-              <CreditCardSubmitButton>Pay £100.00</CreditCardSubmitButton>
+              <CreditCardSubmitButton>Pay £{this.state.personInfo.amount}</CreditCardSubmitButton>
 
             </SquarePaymentForm>
           </Grid>

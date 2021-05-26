@@ -46,7 +46,7 @@ function App() {
           if (payment.paymentInfo)
           {
             const payment_info = JSON.parse(payment.paymentInfo)
-            payment_method = payment_info.payment_method
+            payment_method = payment_info.id
           }
 
           setState(state=>({...state, payment : payment, payment_method: payment_method, payment_already_done: true}))
