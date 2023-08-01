@@ -122,7 +122,7 @@ export default function PayForm() {
     window.scrollTo(0, 0);
 
     let sqPaymentScript = document.createElement("script");
-    sqPaymentScript.src = "https://js.squareup.com/v2/paymentform";
+    sqPaymentScript.src = "https://web.squarecdn.com/v1/square.js";
     sqPaymentScript.type = "text/javascript";
     sqPaymentScript.async = false;
     sqPaymentScript.onload = () => {

@@ -99,7 +99,7 @@ export default class PaymentFormNew extends React.Component {
         overrides={{
           scriptSrc: SANDBOX
             ? "https://sandbox.web.squarecdn.com/v1/square.js"
-            : "https://js.squareup.com/v2/paymentform", // this is an example, not real URL
+            : "https://web.squarecdn.com/v1/square.js", // this is an example, not real URL
         }}
         cardTokenizeResponseReceived={this.cardNonceResponseReceived}
         createVerificationDetails={this.createVerificationDetails}
