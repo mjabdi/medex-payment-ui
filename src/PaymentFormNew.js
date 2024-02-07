@@ -5,7 +5,7 @@ import PaymentService from "./services/PaymentService";
 
 import { PaymentForm, CreditCard } from "react-square-web-payments-sdk";
 
-export const SANDBOX = false;
+const SANDBOX = false;
 
 const LIVE_APPLICATION_ID = "sq0idp-8-tRTRJuDMDeTBHxJq02xg"; // Live
 const LIVE_LOCATION_ID = "L2SBNYPV0XWVJ"; //Live
@@ -53,30 +53,25 @@ export default class PaymentFormNew extends React.Component {
   //   }
   // };
 
+  cardNonceResponseReceived = async (token, buyer) => {
+    console.log({ token, buyer });
 
-  cardNonceResponseReceived = async (
-    token,
-    buyer
-    ) => {
-      console.log({ token, buyer });
+    this.setState({ errorMessages: [] });
 
-        this.setState({ errorMessages: [] });
-
-        try {
-          this.props.onStart();
-          const result = await PaymentService.doPayment({
-            nonce: token.token,
-            token: buyer.token,
-            medexPaymentId: this.state.personInfo._id,
-          });
-          console.log(result);
-          this.props.onComplete(result);
-        } catch (ex) {
-          console.error(ex);
-          this.props.onError(ex);
-        }
-    };
-
+    try {
+      this.props.onStart();
+      const result = await PaymentService.doPayment({
+        nonce: token.token,
+        token: buyer.token,
+        medexPaymentId: this.state.personInfo._id,
+      });
+      console.log(result);
+      this.props.onComplete(result);
+    } catch (ex) {
+      console.error(ex);
+      this.props.onError(ex);
+    }
+  };
 
   createVerificationDetails() {
     return {
@@ -105,19 +100,21 @@ export default class PaymentFormNew extends React.Component {
         createVerificationDetails={this.createVerificationDetails}
       >
         <div style={{ padding: "20px 10px" }}>
-          <CreditCard 
-           buttonProps={{
-            css: {
-              backgroundColor: '#b30c1d',
-              color: '#fff',
-              '&:hover': {
-                backgroundColor: '#de071d',
+          <CreditCard
+            buttonProps={{
+              css: {
+                backgroundColor: "#b30c1d",
+                color: "#fff",
+                "&:hover": {
+                  backgroundColor: "#de071d",
+                },
               },
-            },
-          }}
+            }}
           >
-              <span style={{fontWeight:"600", fontSize:"1.2em"}}>Pay {`£${this.state.personInfo.amount}`}</span>
-           </CreditCard>
+            <span style={{ fontWeight: "600", fontSize: "1.2em" }}>
+              Pay {`£${this.state.personInfo.amount}`}
+            </span>
+          </CreditCard>
         </div>
       </PaymentForm>
     );
