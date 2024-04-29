@@ -147,7 +147,7 @@ export default function PersonsBox() {
                         
                         <ul className={classes.ul}>
                             <li className={classes.li}>
-                            <span className={classes.infoTitle}>Gender</span> <span className={classes.infoData}>{person.gender}</span>   
+                            <span className={classes.infoTitle}>Sex</span> <span className={classes.infoData}>{person.gender}</span>   
                             </li>
                             <li className={classes.li}>
                             <span className={classes.infoTitle}>Title</span>  <span className={classes.infoData}>{person.title}</span>   
